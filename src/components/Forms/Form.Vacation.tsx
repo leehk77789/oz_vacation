@@ -70,10 +70,10 @@ export const FormVacation = ({
       <p className="text-2xl font-semibold pb-2 text-green-600">{`${
         new Date(duringFrom).getFullYear() || "0000"
       }.${changeTwoDay(
-        new Date(duringFrom).getMonth() || -1 + 1
+        new Date(duringFrom).getMonth() + 1 || -1 + 1
       )}.${changeTwoDay(new Date(duringFrom).getDate() || 0)} ~ ${
         new Date(duringTo).getFullYear() || "0000"
-      }.${changeTwoDay(new Date(duringTo).getMonth() || -1 + 1) || "00"}.${
+      }.${changeTwoDay(new Date(duringTo).getMonth() + 1 || -1 + 1) || "00"}.${
         changeTwoDay(new Date(duringTo).getDate() || 0) || "00"
       }(${
         Math.floor(
