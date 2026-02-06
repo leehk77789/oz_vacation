@@ -145,6 +145,7 @@ module.exports = async (req, res) => {
       updatedRange: response.data.updates?.updatedRange,
     });
   } catch (error) {
+    console.error("Sheets append failed:", error);
     const message =
       error instanceof Error ? error.message : "Unknown server error";
     return res.status(500).json({ error: message });
@@ -158,4 +159,3 @@ module.exports.config = {
     },
   },
 };
-

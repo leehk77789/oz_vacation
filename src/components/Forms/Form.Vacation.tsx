@@ -1,5 +1,6 @@
 import {
   CustomInput,
+  CustomDatePicker,
   Description,
   PageButtons,
   PageButtonsProps,
@@ -64,7 +65,7 @@ export const FormVacation = ({
       <Description>해당 정보는 휴가 신청서 작성 시에만 사용됩니다.</Description>
       <div className="w-full flex items-center justify-between gap-10 max-w-sm">
         {VACATION_DATE_ELEMENTS.map((el) => (
-          <CustomInput key={el.htmlFor} {...el} />
+          <CustomDatePicker key={el.htmlFor} {...el} />
         ))}
       </div>
       <p className="text-2xl font-semibold pb-2 text-[color:var(--accent)]">{`${
@@ -83,9 +84,13 @@ export const FormVacation = ({
           })
         ) || "0"
       }일)`}</p>
-      {INPUT_ELEMENTS.map((el) => (
-        <CustomInput key={el.htmlFor} {...el} />
-      ))}
+      {INPUT_ELEMENTS.map((el) =>
+        el.type === "date" ? (
+          <CustomDatePicker key={el.htmlFor} {...el} />
+        ) : (
+          <CustomInput key={el.htmlFor} {...el} />
+        )
+      )}
       <PageButtons
         mode="both"
         prevAction={prevAction}

@@ -4,6 +4,7 @@ import { dateFormatting } from "../../utils";
 import { USER_FORM_CONFIGS } from "../../assets/configs";
 import {
   CustomInput,
+  CustomDatePicker,
   CustomSelect,
   Description,
   PageButtons,
@@ -63,7 +64,11 @@ export const FormUser = ({
         isRequire={true}
       />
       {INPUT_ELEMENTS.map((el) => (
-        <CustomInput key={el.htmlFor} {...el} />
+        el.type === "date" ? (
+          <CustomDatePicker key={el.htmlFor} {...el} />
+        ) : (
+          <CustomInput key={el.htmlFor} {...el} />
+        )
       ))}
       <PageButtons
         mode="both"
