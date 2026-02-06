@@ -28,19 +28,17 @@ const AlertModal = ({
   return (
     <article
       ref={modalRef}
-      className={
-        "p-5 rounded-md shadow-sm bg-white flex flex-col justify-center items-center"
-      }
+      className="p-6 rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.25)] bg-[#f6f7f9] text-[#1a1f24] flex flex-col justify-center items-center min-w-[18rem]"
     >
       <h1
         className={
           titleClassName ??
-          "font-semibold text-lg text-dark border-b-2 border-solid w-3/4 text-center border-dark-900"
+          "font-semibold text-lg border-b border-black/10 w-full text-center pb-2"
         }
       >
         {title}
       </h1>
-      <p className="text-dark py-10 px-8">{content}</p>
+      <p className="py-6 px-4 text-center">{content}</p>
       <CustomButton mode="default" onClick={onConfirm}>
         {confirmMessage ?? "확인"}
       </CustomButton>
@@ -57,10 +55,15 @@ const ConfirmModal = ({
   modalRef,
 }: Omit<ModalProps, "type" | "modalKey">) => {
   return (
-    <article className="" ref={modalRef}>
-      <h1 className="">{title}</h1>
-      <p className="">{content}</p>
-      <div className="">
+    <article
+      className="p-6 rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.25)] bg-[#f6f7f9] text-[#1a1f24] flex flex-col justify-center items-center min-w-[18rem]"
+      ref={modalRef}
+    >
+      <h1 className="font-semibold text-lg border-b border-black/10 w-full text-center pb-2">
+        {title}
+      </h1>
+      <p className="py-6 px-4 text-center">{content}</p>
+      <div className="flex items-center justify-center gap-3">
         <CustomButton mode="outline" onClick={onCancel}>
           {cancelMessage ?? "취소"}
         </CustomButton>
@@ -79,7 +82,7 @@ const ModalContent = ({ type, modalKey, ...modalContents }: ModalProps) => {
     const modalCloseClick = (event: MouseEvent) => {
       const ref = modalRef.current;
       if (ref && openList.some((v) => v.modalKey === modalKey)) {
-        if (!(ref === event.target)) {
+        if (!ref.contains(event.target as Node)) {
           closeModal(modalKey);
         }
       }

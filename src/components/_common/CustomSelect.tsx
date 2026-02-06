@@ -32,7 +32,7 @@ export const Select = ({ htmlFor, ...rest }: SelectProps) => {
     <select
       defaultValue={track}
       onChange={handleChangeInput}
-      className="w-full px-4 py-2 text-center text-black transition-all duration-200 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+      className="w-full px-4 py-2 text-center text-[color:var(--text)] transition-all duration-200 bg-[color:var(--field)] border border-[color:var(--stroke)] rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]/35 focus:border-[color:var(--accent)]/50"
       name={htmlFor}
       id={htmlFor}
       {...rest}

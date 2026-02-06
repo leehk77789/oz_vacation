@@ -7,7 +7,12 @@ interface DescriptionProps extends PropsWithChildren {
 
 export const Description = ({ children, className = "" }: DescriptionProps) => {
   return (
-    <p className={twMerge("text-xs font-normal text-gray-500 pb-8", className)}>
+    <p
+      className={twMerge(
+        "text-sm font-normal text-[color:var(--muted)] pb-6",
+        className
+      )}
+    >
       {children}
     </p>
   );

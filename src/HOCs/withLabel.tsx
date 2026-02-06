@@ -36,7 +36,7 @@ export const withLabelInput = (
     return (
       <div className="w-full max-w-sm mx-auto">
         <label
-          className="block text-md font-semibold text-white mb-1"
+          className="block text-md font-semibold text-[color:var(--text)] mb-1"
           htmlFor={htmlFor}
         >
           {labelText}
@@ -66,7 +66,7 @@ export const withLabelSelect = (
     return (
       <div className="w-full max-w-sm mx-auto">
         <label
-          className="block text-md font-semibold text-white mb-1"
+          className="block text-md font-semibold text-[color:var(--text)] mb-1"
           htmlFor={htmlFor}
         >
           {labelText}
@@ -89,7 +89,7 @@ export const withLabelTextArea = (
     return (
       <div className="w-full max-w-sm mx-auto pb-[1.45rem]">
         <label
-          className="block text-md font-semibold text-white mb-1"
+          className="block text-md font-semibold text-[color:var(--text)] mb-1"
           htmlFor={htmlFor}
         >
           {labelText}

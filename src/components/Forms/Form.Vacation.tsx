@@ -59,7 +59,7 @@ export const FormVacation = ({
   }));
 
   return (
-    <section className="h-screen w-full mx-auto flex flex-col justify-center items-center gap-2 px-2">
+    <section className="form-card">
       <Title>휴가 정보 입력</Title>
       <Description>해당 정보는 휴가 신청서 작성 시에만 사용됩니다.</Description>
       <div className="w-full flex items-center justify-between gap-10 max-w-sm">
@@ -67,7 +67,7 @@ export const FormVacation = ({
           <CustomInput key={el.htmlFor} {...el} />
         ))}
       </div>
-      <p className="text-2xl font-semibold pb-2 text-green-600">{`${
+      <p className="text-2xl font-semibold pb-2 text-[color:var(--accent)]">{`${
         new Date(duringFrom).getFullYear() || "0000"
       }.${changeTwoDay(
         new Date(duringFrom).getMonth() + 1 || -1 + 1

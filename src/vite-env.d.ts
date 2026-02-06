@@ -7,6 +7,7 @@ interface ViteTypeOptions {
 }
 
 interface ImportMetaEnv {
+  readonly VITE_API_BASE?: string;
   readonly VITE_APP_TEACHING_5TEAM_SUBMIT_LINK: string;
   readonly VITE_APP_TEACHING_TEAM_DEFAULT_SUBMIT_LINK: string;
   readonly VITE_APP_AH_TRACK_SUBMIT_LINK: string;

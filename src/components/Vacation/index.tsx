@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 import { CustomButton } from "../_common";
+import { useModal } from "../../context";
 const VacationPreview = lazy(() => import("../Vacation/Vacation.Preview"));
 
 interface VacationPDFPreviewProps {
@@ -12,6 +13,21 @@ export const VacationPDFPreview = ({
   handlePrevAction,
   href,
 }: VacationPDFPreviewProps) => {
+  const { openModal, closeModal, openList } = useModal();
+  const handleSubmitClick = () => {
+    const modalKey = "submitDone";
+    if (openList.some((modal) => modal.modalKey === modalKey)) return;
+    if (href) {
+      window.open(href, "_blank", "noopener,noreferrer");
+    }
+    openModal({
+      modalKey,
+      type: "alert",
+      title: "완료",
+      content: "휴가 신청이 완료되었습니다.",
+      onConfirm: () => closeModal(modalKey),
+    });
+  };
   return (
     <Suspense fallback={<LoadingSpinner />}>
       <VacationPreview />
@@ -24,9 +40,9 @@ export const VacationPDFPreview = ({
           뒤로가기
         </CustomButton>
         <CustomButton
-          mode="link"
+          mode="default"
           className="absolute bottom-4 left-28  bg-purple-600 p-3 rounded-md shadow-md hover:bg-purple-800"
-          href={href}
+          onClick={handleSubmitClick}
         >
           제출하기
         </CustomButton>

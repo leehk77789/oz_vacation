@@ -8,7 +8,7 @@ export interface CustomInputProps extends ComponentPropsWithoutRef<"input"> {
 const CInput = ({ htmlFor, ...rest }: CustomInputProps) => {
   return (
     <input
-      className="text-black w-full text-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 duration-200 placeholder-gray-400"
+      className="w-full text-center px-4 py-2 rounded-xl border border-[color:var(--stroke)] bg-[color:var(--field)] text-[color:var(--text)] shadow-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)]/35 focus:border-[color:var(--accent)]/50 duration-200 placeholder:text-[color:var(--muted)]"
       id={htmlFor}
       {...rest}
     />

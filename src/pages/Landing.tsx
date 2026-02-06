@@ -1,4 +1,4 @@
-import LogoImage from "../assets/images/오즈_라이트.png";
+import LogoImage from "../assets/images/oz.png";
 import { CustomButton } from "../components/_common";
 import { Information } from "../components/Landing";
 
@@ -10,19 +10,22 @@ interface LandingProps {
 
 const Landing = ({ handleStart }: LandingProps) => {
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
-      <h1 className="flex flex-col justify-center gap-6 text-center items-center font-extrabold text-3xl">
-        <img
-          src={LogoImage}
-          alt="로고"
-          height={21}
-          width={155}
-          className="block"
-        />
-        <p className="">휴가 신청서 제작 폼</p>
-      </h1>
-      <Information className="mt-8" />
-      <div className="flex items-center justify-between gap-3 my-5">
+    <div className="app-shell">
+      <div className="glass-panel flex flex-col items-center text-center gap-6">
+        <div className="logo-badge">
+          <img
+            src={LogoImage}
+            alt="로고"
+            className="logo-image"
+          />
+        </div>
+        <div>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+            휴가 신청서 제작 폼
+          </h1>
+        </div>
+        <Information className="mt-2" />
+        <div className="flex items-center justify-between gap-3">
         {/* <CustomButton
           mode="link"
           href="https://github.com/L1m3Kun/oz_vacation_form"
@@ -39,14 +42,15 @@ const Landing = ({ handleStart }: LandingProps) => {
         <CustomButton
           href="https://github.com/L1m3Kun/oz_vacation_form/issues/2"
           mode="link"
-          className="text-lg text-gray-400"
+          className="text-sm"
         >
           💬 여러분의 의견을 들려주세요.
         </CustomButton>
+        </div>
+        <CustomButton mode="default" onClick={handleStart}>
+          시작하기
+        </CustomButton>
       </div>
-      <CustomButton mode="default" onClick={handleStart}>
-        시작하기
-      </CustomButton>
     </div>
   );
 };

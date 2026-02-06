@@ -6,12 +6,13 @@ interface CustomButtonProps extends ComponentPropsWithoutRef<"button"> {
 }
 
 const DEFAULT_CLASS_NAME =
-  "flex flex-col items-center justify-center rounded-md min-w-20 bg-purple-600 min-h-6 px-4 py-2 font-semibold shadow-lg border-solid border-fuchsia-900 hover:bg-purple-800 disabled:text-gray-400 disabled:bg-gray-700";
+  "relative inline-flex items-center justify-center rounded-xl min-w-24 px-5 py-3 font-semibold text-white bg-[color:var(--accent)] shadow-[0_10px_24px_rgba(0,0,0,0.25)] transition-colors duration-200 hover:bg-[color:var(--accent-strong)] disabled:opacity-60 disabled:cursor-not-allowed";
 
 const OUTLINE_CLASS_NAME =
-  "rounded-md min-w-20 min-h-6 px-4 py-2 border-solid border hover:bg-gray-700 disabled:border-gray-500 disabled:bg-none";
+  "inline-flex items-center justify-center rounded-xl min-w-24 px-5 py-3 border border-[color:var(--stroke)] text-[color:var(--text)] bg-transparent transition-colors duration-200 hover:bg-white/5 disabled:opacity-60 disabled:cursor-not-allowed";
 
-const LINK_CLASS_NAME = "";
+const LINK_CLASS_NAME =
+  "text-[color:var(--muted)] hover:text-[color:var(--text)] transition-colors";
 
 export const CustomButton = memo<CustomButtonProps>(
   ({ mode, children, className, href, ...rest }) => {
@@ -35,6 +36,7 @@ export const CustomButton = memo<CustomButtonProps>(
             href={href}
             target="_blank"
             rel="noreferrer"
+            {...rest}
           >
             {children}
           </a>

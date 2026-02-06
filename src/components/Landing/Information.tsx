@@ -8,8 +8,8 @@ interface InfromationProps {
 }
 
 const CLASSNAME = {
-  hilight: "font-bold text-orange-400",
-  subLight: "text-fuchsia-300",
+  hilight: "font-semibold text-[color:var(--accent)]",
+  subLight: "text-[color:var(--muted)]",
 };
 
 export const Information = ({
@@ -20,16 +20,16 @@ export const Information = ({
   return (
     <div
       className={twMerge(
-        "flex flex-col justify-center items-center max-w-[30rem] border-solid border-white border-2 rounded-xl py-4 px-4 gap-2 mx-4",
+        "flex flex-col justify-center items-center max-w-[30rem] border border-[color:var(--stroke)] rounded-2xl py-4 px-4 gap-2 mx-2 bg-[color:var(--field)]",
         className
       )}
     >
-      <Title className={twMerge("text-green-500", titleClassName)}>
-        🌟 알려드립니다 🌟
+      <Title className={twMerge("text-xl", titleClassName)}>
+        알려드립니다
       </Title>
       <Description
         className={twMerge(
-          "text-lg leading-tight pb-0 text-white ",
+          "text-sm leading-relaxed pb-0 text-[color:var(--muted)] ",
           descriptionClassName
         )}
       >

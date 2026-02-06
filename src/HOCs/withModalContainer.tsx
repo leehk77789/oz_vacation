@@ -6,7 +6,7 @@ export const withModalContainer = (
 ) => {
   return (rest: ModalProps) => {
     return (
-      <div className="absolute top-0 left-0 right-0 flex justify-center items-center w-full h-screen bg-gray-700 bg-opacity-60">
+    <div className="fixed inset-0 z-50 flex justify-center items-center w-full h-screen bg-black/55">
         <WrappedComponent {...rest} />
       </div>
     );
