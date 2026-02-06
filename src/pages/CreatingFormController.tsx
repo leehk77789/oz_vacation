@@ -74,7 +74,8 @@ const CurrentPage = ({
 const CreatingFormController = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const { handleSignUrl, ...value } = useVacation();
+  const vacation = useVacation();
+  const { handleSignUrl } = vacation;
   const { setItemToLocalStorage, removeFromLocalStorage } = localStorageUtils();
   const { canvasValidate } = useCanvasValidate();
   const { openModal, closeModal } = useModal();
@@ -124,11 +125,11 @@ const CreatingFormController = () => {
       const [isValid, errorText] = canvasValidate(canvasCurrent);
       if (isValid) {
         const url = canvasCurrent.toDataURL();
-        const sheetRow = buildSheetRow(value);
+        const sheetRow = buildSheetRow(vacation);
         try {
           setIsSubmitting(true);
           setTargetProgress(8);
-          const pdfProps = buildVacationPdfProps(value, url);
+          const pdfProps = buildVacationPdfProps(vacation, url);
           setTargetProgress((prev) => Math.max(prev, 25));
           const pdfBlob = await pdf(<VacationForm {...pdfProps} />).toBlob();
           setTargetProgress((prev) => Math.max(prev, 55));
@@ -140,7 +141,7 @@ const CreatingFormController = () => {
           });
           setTargetProgress(100);
 
-          const { birth, duringFrom, duringTo, flag, name, track } = value;
+          const { birth, duringFrom, duringTo, flag, name, track } = vacation;
           const localSavedValue = {
             track,
             birth,
