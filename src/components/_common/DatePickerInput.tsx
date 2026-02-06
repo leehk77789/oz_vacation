@@ -38,8 +38,14 @@ const DatePickerBase = ({
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const selected = useMemo(() => parseDateValue(String(value)), [value]);
-  const minDate = useMemo(() => parseDateValue(min), [min]);
-  const maxDate = useMemo(() => parseDateValue(max), [max]);
+  const minDate = useMemo(
+    () => (min ? parseDateValue(String(min)) : undefined),
+    [min]
+  );
+  const maxDate = useMemo(
+    () => (max ? parseDateValue(String(max)) : undefined),
+    [max]
+  );
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
